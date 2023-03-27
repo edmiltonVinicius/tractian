@@ -1,21 +1,77 @@
+import { Button, Col, Form, Input, message, Row } from 'antd';
 import Image from 'next/image';
-import { Col, Row, Button, Checkbox, Form, Input } from 'antd';
-
-import style from './index.module.scss';
-import imageLogin from '../../public/svg/tractian-login.svg';
+import nookies from 'nookies';
+import { SignInService } from '@/services/signin/SignInService';
+import { ISignInParams, ISignInResponse } from '@/types/signin.interface';
 import { LockOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
+import { useMutation } from 'react-query';
+import imageLogin from '../../public/svg/tractian-login.svg';
+import style from '../styles/index.module.scss';
+import { IResponse } from '@/types/api.interface';
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const { [process.env.KEY_COOKIES as string]: valueCookie } =
+		nookies.get(ctx);
+
+	if (valueCookie === (process.env.VALUE_COOKIES as string)) {
+		return {
+			redirect: {
+				destination: '/dashboard',
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {},
+	};
+};
 
 export default function Home() {
-	const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false);
+	const router = useRouter();
+	const [messageSnackBar, contextSnackBar] = message.useMessage();
 
-	const onFinishLogin = (values: any) => {
-		setIsLoggingIn(true);
-		console.log('values: ', values);
+	const onFinishLogin = async ({ email, password }: ISignInParams) => {
+		onLogin({ email, password });
 	};
+
+	const { mutate: onLogin, isLoading } = useMutation(
+		async ({ email, password }: ISignInParams) =>
+			await SignInService({
+				email: email,
+				password: password,
+			}),
+		{
+			onSuccess() {
+				messageSnackBar.open({
+					type: 'success',
+					content: 'Cool, you are authenticated!',
+					duration: 2,
+					className: 'snackBarComponent',
+				});
+				setTimeout(() => {
+					router.replace('/dashboard');
+				}, 1000);
+			},
+			onError(error: IResponse<ISignInResponse>) {
+				const defaultMessageError =
+					'Ops... There was a problem, please try again.';
+
+				messageSnackBar.open({
+					type: 'error',
+					content: error.errors[0].message || defaultMessageError,
+					duration: 3,
+					className: 'snackBarComponent',
+				});
+			},
+		}
+	);
 
 	return (
 		<div className={style.container}>
+			{contextSnackBar}
 			<div className={style.wrapper}>
 				<Row className={style.row}>
 					<Col
@@ -44,7 +100,7 @@ export default function Home() {
 							className={style.formLogin}
 						>
 							<Form.Item
-								name="userEmail"
+								name="email"
 								rules={[
 									{
 										required: true,
@@ -65,7 +121,7 @@ export default function Home() {
 							</Form.Item>
 
 							<Form.Item
-								name="userPassword"
+								name="password"
 								rules={[
 									{
 										required: true,
@@ -92,13 +148,13 @@ export default function Home() {
 								<Button
 									type="primary"
 									htmlType="submit"
-									disabled={isLoggingIn}
+									disabled={isLoading}
 									size={'large'}
-									loading={isLoggingIn}
+									loading={isLoading}
 									block
 								>
-									{!isLoggingIn && <LoginOutlined />}
-									{!isLoggingIn ? 'GO!' : 'Going...'}
+									{!isLoading && <LoginOutlined />}
+									{!isLoading ? 'GO!' : 'Going...'}
 								</Button>
 							</Form.Item>
 						</Form>
@@ -107,7 +163,8 @@ export default function Home() {
 			</div>
 			<div className={style.copyRight}>
 				<p>
-					Created by Edmilton Vinicius Pansanato - Just for challenge!
+					Created by Edmilton Vinicius Pansanato - Just for the
+					challenge!
 				</p>
 			</div>
 		</div>
