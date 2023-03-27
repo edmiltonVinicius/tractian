@@ -56,12 +56,11 @@ export default function Home() {
 				}, 1000);
 			},
 			onError(error: IResponse<ISignInResponse>) {
-				const defaultMessageError =
-					'Ops... There was a problem, please try again.';
-
 				messageSnackBar.open({
 					type: 'error',
-					content: error.errors[0].message || defaultMessageError,
+					content:
+						error.errors[0].message ||
+						'Ops... There was a problem, please try again.',
 					duration: 3,
 					className: 'snackBarComponent',
 				});
