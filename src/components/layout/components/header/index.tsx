@@ -16,8 +16,11 @@ import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { GetListUnitsService } from '@/services/unit/GetUnitsService';
 import { useQuery } from 'react-query';
 import Link from 'next/link';
+import { SignOutService } from '@/services/signout/SignOutService';
+import { useRouter } from 'next/router';
 
 export const HeaderLayout = () => {
+	const router = useRouter();
 	const preventDefaultAction = (e: React.MouseEvent) => e.preventDefault();
 
 	const {
@@ -44,12 +47,13 @@ export const HeaderLayout = () => {
 		},
 	];
 
-	const onClickUnit: MenuProps['onClick'] = ({ key }) => {
+	const onSelectUnit: MenuProps['onClick'] = ({ key }) => {
 		message.info(`Click on item ${key}`);
 	};
 
-	const onClickUser: MenuProps['onClick'] = ({ key }) => {
-		message.info(`Click on item ${key}`);
+	const onSignOut: MenuProps['onClick'] = async ({ key }) => {
+		await SignOutService();
+		router.replace('/');
 	};
 
 	return (
@@ -67,7 +71,7 @@ export const HeaderLayout = () => {
 
 				<Col span={4}>
 					<Dropdown
-						menu={{ items: itemsMenuUnits, onClick: onClickUnit }}
+						menu={{ items: itemsMenuUnits, onClick: onSelectUnit }}
 						trigger={['click']}
 						disabled={isError || isLoading}
 					>
@@ -108,7 +112,7 @@ export const HeaderLayout = () => {
 						icon={<UserOutlined />}
 					/>
 					<Dropdown
-						menu={{ items: itemsMenuUser, onClick: onClickUser }}
+						menu={{ items: itemsMenuUser, onClick: onSignOut }}
 						trigger={['click']}
 					>
 						<a
