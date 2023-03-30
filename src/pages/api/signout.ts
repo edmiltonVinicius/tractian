@@ -1,4 +1,3 @@
-import { IResponse } from '@/types/api.interface';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { destroyCookie } from 'nookies';
 

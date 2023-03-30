@@ -2,14 +2,17 @@ import { Button, Col, Form, Input, message, Row } from 'antd';
 import Image from 'next/image';
 import nookies from 'nookies';
 import { SignInService } from '@/services/signin/SignInService';
-import { ISignInParams, ISignInResponse } from '@/types/signin.interface';
+import {
+	ISignInParams,
+	ISignInResponse,
+} from '@/types/interfaces/signin.interface';
 import { LockOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 import imageLogin from '../../public/svg/tractian-login.svg';
 import style from '../styles/index.module.scss';
-import { IResponse } from '@/types/api.interface';
+import { IResponse } from '@/types/interfaces/api.interface';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const { [process.env.KEY_COOKIES as string]: valueCookie } =

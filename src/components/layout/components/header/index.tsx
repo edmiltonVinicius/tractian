@@ -1,14 +1,5 @@
-import React from 'react';
-import {
-	Avatar,
-	Col,
-	Dropdown,
-	MenuProps,
-	message,
-	Row,
-	Space,
-	Spin,
-} from 'antd';
+import React, { useContext } from 'react';
+import { Avatar, Col, Dropdown, MenuProps, Row, Space, Spin } from 'antd';
 import Image from 'next/image';
 import styles from './header.module.scss';
 import logoImage from '../../../../../public/images/logo-tractian-header.png';
@@ -18,8 +9,10 @@ import { useQuery } from 'react-query';
 import Link from 'next/link';
 import { SignOutService } from '@/services/signout/SignOutService';
 import { useRouter } from 'next/router';
+import { UnitContext } from '@/contexts/unitContext';
 
 export const HeaderLayout = () => {
+	const { unitSelected, changeUnitSelected } = useContext(UnitContext);
 	const router = useRouter();
 	const preventDefaultAction = (e: React.MouseEvent) => e.preventDefault();
 
@@ -48,13 +41,17 @@ export const HeaderLayout = () => {
 	];
 
 	const onSelectUnit: MenuProps['onClick'] = ({ key }) => {
-		message.info(`Click on item ${key}`);
+		changeUnitSelected(+key);
 	};
 
-	const onSignOut: MenuProps['onClick'] = async ({ key }) => {
+	const onSignOut: MenuProps['onClick'] = async () => {
 		await SignOutService();
 		router.replace('/');
 	};
+
+	const unitName = unitList?.data!.find(
+		(item) => item.id === unitSelected
+	)?.name;
 
 	return (
 		<header className={styles.header}>
@@ -92,7 +89,7 @@ export const HeaderLayout = () => {
 								{isError && <span>Ops...</span>}
 								{!isError && !isLoading && unitList && (
 									<>
-										<span>{unitList.data[0].name}</span>
+										<span>{unitName}</span>
 										<DownOutlined
 											style={{ fontSize: 12 }}
 										/>

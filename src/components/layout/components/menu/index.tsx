@@ -14,9 +14,7 @@ export const MenuLayout = () => {
 
 	const getItemSelectedMenuByPath = (): string => {
 		const path = router.pathname;
-		return path === '/dashboard'
-			? '/dashboard'
-			: path.split('/dashboard/')[1];
+		return path === '/dashboard' ? '/dashboard' : path;
 	};
 
 	const [current, setCurrent] = useState<string>(getItemSelectedMenuByPath());

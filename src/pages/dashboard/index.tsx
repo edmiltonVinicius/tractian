@@ -1,8 +1,6 @@
 import { BaseLayout } from '@/components/layout';
 import { OperationStatusComponent } from '@/components/shared/operantion-status';
 import { apiClient } from '@/libs/axiosClient';
-import { GetAllAssetsService } from '@/services/assets/getAllAssetsService';
-import { MachineStatusEnum } from '@/types/enum/machine-status.enum';
 import { IResponse } from '@/types/interfaces/api.interface';
 import {
 	IOverview,
