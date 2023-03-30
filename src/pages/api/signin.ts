@@ -1,5 +1,8 @@
-import { IResponse } from '@/types/api.interface';
-import { ISignInParams, ISignInResponse } from '@/types/signin.interface';
+import { IResponse } from '@/types/interfaces/api.interface';
+import {
+	ISignInParams,
+	ISignInResponse,
+} from '@/types/interfaces/signin.interface';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { setCookie } from 'nookies';
 

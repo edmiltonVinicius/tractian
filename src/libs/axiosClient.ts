@@ -11,7 +11,7 @@ export const apiClient = axios.create({
 apiClient.interceptors.response.use(
 	(success) => {
 		const { data } = success;
-		return data?.data;
+		return data;
 	},
 	(error) => {
 		const { response } = error;

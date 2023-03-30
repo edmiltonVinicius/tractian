@@ -12,7 +12,9 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
 			<Layout>
 				<HeaderLayout />
 				<MenuLayout />
-				<main>{children}</main>
+				<main style={{ padding: '30px 25px', backgroundColor: '#fff' }}>
+					{children}
+				</main>
 			</Layout>
 		</Space>
 	);
