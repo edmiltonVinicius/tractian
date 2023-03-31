@@ -1,5 +1,6 @@
 import { BaseLayout } from '@/components/layout';
-import { OperationStatusComponent } from '@/components/shared/operantion-status';
+import { OperationStatusComponent } from '@/components/shared/operation-status';
+import { UnitContext } from '@/contexts/unitContext';
 import { apiClient } from '@/libs/axiosClient';
 import { IResponse } from '@/types/interfaces/api.interface';
 import {
@@ -9,6 +10,7 @@ import {
 import { Col, Row, Spin } from 'antd';
 import { GetServerSideProps } from 'next';
 import nookies from 'nookies';
+import { useContext } from 'react';
 import { useQuery } from 'react-query';
 import styles from '../../styles/dashboard.module.scss';
 
@@ -31,6 +33,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 export default function Dashboard() {
+	const { unitSelected } = useContext(UnitContext);
+
 	const loadPageData = async (unitId: number) => {
 		return (await apiClient({
 			method: 'GET',
@@ -41,7 +45,7 @@ export default function Dashboard() {
 
 	const { isLoading, isError, data } = useQuery(
 		'overview-page',
-		() => loadPageData(1), // @TODO -> GET FROM CONTEXT
+		() => loadPageData(unitSelected),
 		{
 			refetchOnWindowFocus: false,
 		}

@@ -1,0 +1,40 @@
+.list-work-order {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	gap: 0 !important;
+
+	&__error,
+	&__spinner {
+		text-align: center;
+		width: 100%;
+		min-width: 550px;
+		min-height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__error {
+		flex-direction: column;
+
+		:global {
+			.anticon {
+				font-size: 50px;
+				border: 2px solid #38569d;
+				border-radius: 50%;
+				padding: 5px;
+				color: #38569d;
+			}
+		}
+
+		p {
+			font-size: 18px;
+			margin-top: 10px;
+			color: #e19d9b;
+			font-weight: 600;
+		}
+	}
+}

@@ -101,8 +101,8 @@ export const HeaderLayout = () => {
 				</Col>
 
 				<Col
-					span={4}
-					offset={12}
+					span={3}
+					offset={13}
 				>
 					<Avatar
 						style={{ backgroundColor: '#87d068' }}
@@ -117,7 +117,7 @@ export const HeaderLayout = () => {
 							className={styles['button-select--user']}
 						>
 							<Space>
-								<span>BlueCaps</span>
+								<span>BlueCap</span>
 								<DownOutlined style={{ fontSize: 12 }} />
 							</Space>
 						</a>

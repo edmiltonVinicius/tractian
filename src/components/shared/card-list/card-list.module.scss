@@ -1,0 +1,94 @@
+.card-list {
+	width: 100%;
+	max-width: 550px;
+	min-width: 550px;
+	min-height: 130px;
+	border: 1px solid #eee;
+	background-color: #f5faff;
+	cursor: pointer;
+
+	:global {
+		.ant-space-item:last-of-type {
+			width: 100%;
+		}
+	}
+
+	.icon {
+		width: 90px;
+		text-align: center;
+	}
+
+	.infos {
+		padding-right: 36px;
+
+		&__title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			p {
+				font-size: 17px;
+				color: #565158;
+			}
+
+			span {
+				font-size: 17px;
+				color: #c5c0be;
+			}
+		}
+
+		&__description {
+			font-size: 13px;
+			color: #a8abae;
+		}
+
+		&__status {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			margin-top: 16px;
+
+			.status-name {
+				height: 30px;
+				border-radius: 4px;
+				font-size: 13px;
+				background-color: #eee;
+				line-height: 30px;
+				padding: 0 12px;
+				text-transform: capitalize;
+				margin-right: 24px;
+				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+				color: #fff;
+				font-weight: 500;
+
+				&.completed {
+					color: #5fbe9f;
+					background-color: #c4f4e8;
+				}
+
+				&.inprogress {
+					color: #e5c190;
+					background-color: #fdefd8;
+				}
+			}
+
+			.priority {
+				height: 30px;
+				font-size: 13px;
+				line-height: 30px;
+				border-radius: 4px;
+				padding: 0 12px;
+				text-transform: capitalize;
+				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+				font-weight: 500;
+				background-color: #eee;
+				color: #fff;
+
+				&.high {
+					background-color: red;
+					color: #fff;
+				}
+			}
+		}
+	}
+}

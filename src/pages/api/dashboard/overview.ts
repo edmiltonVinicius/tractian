@@ -1,4 +1,4 @@
-import { GetAllAssetsService } from '@/services/assets/getAllAssetsService';
+import { GetAllAssetsService } from '@/services/assets/GetAllAssetsService';
 import { MachineStatusEnum } from '@/types/enum/machine-status.enum';
 import { IResponse } from '@/types/interfaces/api.interface';
 import { IOverview } from '@/types/interfaces/overview.interface';

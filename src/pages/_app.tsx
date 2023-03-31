@@ -1,4 +1,4 @@
-import UnitContextProvider from '@/contexts/unitContext';
+import { ContextProvider } from '@/contexts';
 import { queryClient } from '@/libs/queryClient';
 import '@/styles/globals.scss';
 import { ConfigProvider } from 'antd';
@@ -15,9 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
 					},
 				}}
 			>
-				<UnitContextProvider>
+				<ContextProvider>
 					<Component {...pageProps} />
-				</UnitContextProvider>
+				</ContextProvider>
 			</ConfigProvider>
 		</QueryClientProvider>
 	);

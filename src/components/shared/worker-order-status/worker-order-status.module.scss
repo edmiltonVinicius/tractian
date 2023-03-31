@@ -1,0 +1,40 @@
+.worker-order-status {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 125px;
+	height: 70px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 8px 12px;
+
+	&.active {
+		background: #1688fb;
+		color: #fff;
+
+		:global {
+			.anticon {
+				color: #fff;
+			}
+		}
+
+		p {
+			color: #fff;
+		}
+	}
+
+	:global {
+		.anticon {
+			color: #1688fb;
+			font-size: 23px;
+			display: block;
+		}
+	}
+
+	p {
+		text-align: center;
+		color: #1688fb;
+		font-weight: 600;
+		text-transform: capitalize;
+	}
+}

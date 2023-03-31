@@ -1,0 +1,40 @@
+.header-page {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	margin-right: 32px;
+
+	h1 {
+		font-size: 25px;
+		font-weight: 500;
+	}
+}
+
+.work-orders {
+	width: auto;
+	border: 1px solid #cfc9c9;
+	padding-top: 30px;
+	border-radius: 7px;
+
+	:global {
+		.ant-tabs {
+			&-nav {
+				margin-bottom: 0;
+			}
+
+			&-tab {
+				padding-bottom: 5px;
+			}
+		}
+	}
+
+	&__label {
+		width: 200px;
+		display: block;
+		text-align: center;
+		font-size: 15px;
+		text-transform: capitalize;
+	}
+}
