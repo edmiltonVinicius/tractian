@@ -14,6 +14,7 @@ import { WorkOrderContext } from '@/contexts/workOrderContext';
 import { DetailsWorkOrder } from '@/components/details-work-order';
 import { PlusOutlined } from '@ant-design/icons';
 import { StatisticWorkOrder } from '@/components/statistic-work-order';
+import Head from 'next/head';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const { [process.env.KEY_COOKIES as string]: valueCookie } =
@@ -48,7 +49,7 @@ export default function WorkOrders() {
 	);
 
 	return (
-		<BaseLayout>
+		<BaseLayout title="Work orders">
 			<Row>
 				<Col className={styles['header-page']}>
 					<h1>Work orders</h1>

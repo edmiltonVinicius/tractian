@@ -52,7 +52,7 @@ export default function Dashboard() {
 	);
 
 	return (
-		<BaseLayout>
+		<BaseLayout title="Overview">
 			<Row
 				justify={'center'}
 				className={styles['dashboard']}
