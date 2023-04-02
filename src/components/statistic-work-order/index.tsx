@@ -62,7 +62,7 @@ export const StatisticWorkOrder = ({
 				className={styles['statistic-work-order']}
 			>
 				<Col span={24}>
-					<h3>Statistics</h3>
+					<h3>Statue stats</h3>
 				</Col>
 
 				<Col span={8}>

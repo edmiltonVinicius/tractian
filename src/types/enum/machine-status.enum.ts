@@ -1,7 +1,7 @@
 export enum MachineStatusEnum {
 	ALERT = 'inAlert',
 	OPERATION = 'inOperation',
-	DOWN_TIME = 'inDownTime',
+	DOWN_TIME = 'inDowntime',
 	UNPLANNED_STOP = 'unplannedStop',
 	PLANNED_STOP = 'plannedStop',
 }
@@ -9,7 +9,7 @@ export enum MachineStatusEnum {
 export enum MachineStatusDisplayEnum {
 	inAlert = 'In alert',
 	inOperation = 'In operation',
-	inDownTime = 'Offline',
+	inDowntime = 'Offline',
 	unplannedStop = 'Unplanned stop',
 	plannedStop = 'Planned stop',
 }

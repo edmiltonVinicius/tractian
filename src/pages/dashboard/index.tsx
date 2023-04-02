@@ -44,7 +44,7 @@ export default function Dashboard() {
 	};
 
 	const { isLoading, isError, data } = useQuery(
-		'overview-page',
+		[`overview-page-${unitSelected}`],
 		() => loadPageData(unitSelected),
 		{
 			refetchOnWindowFocus: false,

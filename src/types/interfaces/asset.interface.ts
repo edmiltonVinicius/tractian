@@ -1,3 +1,4 @@
+import { AssetModelEnum } from '../enum/asset-model.enum';
 import { MachineStatusEnum } from '../enum/machine-status.enum';
 
 export interface IAsset {
@@ -15,7 +16,7 @@ export interface IAsset {
 		totalCollectsUptime: number;
 		totalUptime: number;
 	};
-	model: string;
+	model: AssetModelEnum;
 	name: string;
 	sensors: string[];
 	specifications: {

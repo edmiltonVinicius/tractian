@@ -1,0 +1,101 @@
+@import '@/styles/variables.scss';
+
+.card-status {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	padding: 12px 24px;
+	background-color: rgb(246, 242, 242);
+	border-radius: 4px;
+	width: 100%;
+	transition: 0.3s;
+	cursor: pointer;
+	margin-bottom: 8px;
+
+	&:hover {
+		background-color: rgb(243, 239, 239);
+	}
+
+	&__image {
+		width: 90px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 16px;
+
+		.image {
+			border-radius: 50%;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+		}
+	}
+
+	&__details {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		width: inherit;
+
+		h3 {
+			color: $title-dark-grey;
+			font-size: 15px;
+			margin-bottom: 0;
+			margin-bottom: 4px;
+		}
+
+		h4 {
+			color: #8d8b8c;
+			font-weight: 500;
+			text-transform: capitalize;
+			margin-bottom: 8px;
+			font-size: 13px;
+		}
+	}
+
+	&__footer {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		.health-score {
+			padding: 4px 8px 4px 0;
+			border-radius: 4px;
+			color: #8d8b8c;
+			font-size: 13px;
+
+			:global {
+				.anticon {
+					margin-right: 4px;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.status {
+			padding: 4px 8px;
+			background-color: #f5f1f1;
+			border-radius: 4px;
+			color: #fff;
+			font-size: 12px;
+
+			&.inAlert {
+				background-color: $status--inAlert;
+			}
+
+			&.inOperation {
+				background-color: $status--inOperation;
+			}
+
+			&.inDowntime {
+				background-color: $status--inDowntime;
+			}
+
+			&.unplannedStop {
+				background-color: $status--unplannedStop;
+			}
+
+			&.plannedStop {
+				background-color: $status--plannedStop;
+			}
+		}
+	}
+}

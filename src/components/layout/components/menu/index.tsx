@@ -1,5 +1,4 @@
 import {
-	AlertOutlined,
 	DashboardOutlined,
 	DesktopOutlined,
 	FormOutlined,
@@ -33,13 +32,6 @@ export const MenuLayout = () => {
 			icon: <FormOutlined />,
 			expandIcon: true,
 			title: 'Work orders',
-		},
-		{
-			label: 'Insights',
-			key: '/dashboard/insights',
-			icon: <AlertOutlined />,
-			expandIcon: true,
-			title: 'Insights',
 		},
 		{
 			label: 'Status',

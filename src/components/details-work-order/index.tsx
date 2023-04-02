@@ -56,7 +56,7 @@ export const DetailsWorkOrder = ({ idWorkOrder }: DetailsWorkOrderProps) => {
 						<div className={styles['header-wrapper']}>
 							<h4>{workOrder.data.title}</h4>
 							<Link
-								href={`/dashboard/status/${workOrder.data.assetId}`}
+								href={`/dashboard/assets/${workOrder.data.assetId}`}
 							>
 								<EyeOutlined />
 								<span>Insight</span>

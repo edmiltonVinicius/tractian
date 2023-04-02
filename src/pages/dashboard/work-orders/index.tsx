@@ -3,7 +3,7 @@ import { BaseLayout } from '@/components/layout';
 import { apiClient } from '@/libs/axiosClient';
 import { IResponse } from '@/types/interfaces/api.interface';
 import { IListWorkOrder } from '@/types/interfaces/work-order.interface';
-import { Button, Col, Divider, Row, Space, Tabs } from 'antd';
+import { Button, Col, Row, Space, Tabs } from 'antd';
 import { GetServerSideProps } from 'next';
 import nookies from 'nookies';
 import { useQuery } from 'react-query';
@@ -14,7 +14,7 @@ import { WorkOrderContext } from '@/contexts/workOrderContext';
 import { DetailsWorkOrder } from '@/components/details-work-order';
 import { PlusOutlined } from '@ant-design/icons';
 import { StatisticWorkOrder } from '@/components/statistic-work-order';
-import Head from 'next/head';
+import { VerticalDividerComponent } from '@/components/shared/vertical-divider';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const { [process.env.KEY_COOKIES as string]: valueCookie } =
@@ -63,7 +63,7 @@ export default function WorkOrders() {
 			</Row>
 
 			<Row>
-				<Col span={10}>
+				<Col span={9}>
 					<Space className={styles['work-orders']}>
 						<Tabs
 							centered
@@ -130,14 +130,8 @@ export default function WorkOrders() {
 					</Space>
 				</Col>
 
-				<Col span={2}>
-					<Divider
-						type="vertical"
-						style={{
-							height: '100%',
-							backgroundColor: '#e9e7e7',
-						}}
-					/>
+				<Col span={3}>
+					<VerticalDividerComponent />
 				</Col>
 
 				<Col span={12}>
