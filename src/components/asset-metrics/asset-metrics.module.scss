@@ -1,0 +1,54 @@
+.metrics {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	&__list {
+		display: flex;
+	}
+
+	&__content {
+		margin-right: 48px;
+
+		h5 {
+			font-size: 14px;
+			font-weight: 500;
+			margin-bottom: 8px;
+			color: #8b8b8b;
+		}
+
+		p {
+			font-size: 25px;
+			margin-bottom: 4px;
+			display: flex;
+
+			:global {
+				.anticon {
+					color: #1677ff;
+					font-size: 18px;
+					margin-right: 4px;
+				}
+			}
+		}
+
+		span {
+			font-size: 12px;
+			color: #8e8c8c;
+		}
+	}
+
+	&__last-date {
+		display: flex;
+		align-items: center;
+		height: 78px;
+		border-left: 2px solid #ccc;
+		padding-left: 32px;
+		color: #3e539f;
+		font-size: 14px;
+
+		span {
+			font-weight: 500;
+			font-size: 15px;
+		}
+	}
+}

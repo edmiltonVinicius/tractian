@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-export default function WorkOrders() {
+export default function PageWorkOrders() {
 	const { orderWorkerSelected } = useContext(WorkOrderContext);
 
 	const loadWorkOrders = async () => {

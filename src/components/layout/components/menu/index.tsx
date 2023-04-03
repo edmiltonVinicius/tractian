@@ -2,7 +2,6 @@ import {
 	DashboardOutlined,
 	DesktopOutlined,
 	FormOutlined,
-	UsergroupAddOutlined,
 } from '@ant-design/icons';
 import { Menu, MenuProps, Space } from 'antd';
 import { useRouter } from 'next/router';
@@ -13,6 +12,9 @@ export const MenuLayout = () => {
 
 	const getItemSelectedMenuByPath = (): string => {
 		const path = router.pathname;
+		if (path.indexOf('/assets/') !== -1) {
+			return '/dashboard/status';
+		}
 		return path === '/dashboard' ? '/dashboard' : path;
 	};
 
@@ -39,29 +41,6 @@ export const MenuLayout = () => {
 			icon: <DashboardOutlined />,
 			expandIcon: true,
 			title: 'Status',
-		},
-		{
-			label: 'People',
-			key: '/dashboard/people',
-			icon: <UsergroupAddOutlined />,
-			expandIcon: true,
-			children: [
-				{
-					label: 'Companies',
-					key: 'companies',
-					title: 'Companies',
-				},
-				{
-					label: 'Users',
-					key: 'users',
-					title: 'Users',
-				},
-				{
-					label: 'Units',
-					key: 'units',
-					title: 'Units',
-				},
-			],
 		},
 	];
 

@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-export default function Dashboard() {
+export default function PageDashboard() {
 	const { unitSelected } = useContext(UnitContext);
 
 	const loadPageData = async (unitId: number) => {

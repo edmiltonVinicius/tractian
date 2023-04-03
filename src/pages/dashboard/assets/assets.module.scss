@@ -1,0 +1,26 @@
+@import '@/styles/variables.scss';
+
+.assets {
+	margin-top: 24px;
+
+	&__image {
+		text-align: center;
+		position: relative;
+		width: auto;
+
+		img {
+			border-radius: 8px;
+			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+			max-height: 300px;
+		}
+	}
+
+	h1 {
+		margin: 20px 0 40px 0;
+		color: $title-dark-grey;
+	}
+
+	.button-back {
+		margin-bottom: 28px;
+	}
+}

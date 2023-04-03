@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-export default function Status() {
+export default function PageStatus() {
 	const { unitSelected } = useContext(UnitContext);
 
 	const loadStatus = async () => {

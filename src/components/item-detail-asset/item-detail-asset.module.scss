@@ -1,0 +1,41 @@
+@import '@/styles/variables.scss';
+
+.item-detail-asset {
+	display: flex;
+	padding-bottom: 16px;
+	border-bottom: 2px solid #ccc;
+
+	&:not(&:nth-child(2)) {
+		margin-top: 16px;
+	}
+
+	.icon {
+		width: 30px;
+
+		:global {
+			.anticon {
+				color: #85bbf2;
+				font-size: 18px;
+			}
+		}
+	}
+
+	.same-line {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.title {
+		color: $title-dark-grey;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.value {
+		color: #c2c2c2;
+		font-size: 14px;
+		font-weight: 500;
+	}
+}

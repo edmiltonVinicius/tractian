@@ -20,8 +20,16 @@ export interface IAsset {
 	name: string;
 	sensors: string[];
 	specifications: {
-		maxTemp: number;
+		maxTemp: number | null;
+		power: number | null;
+		rpm: number | null;
 	};
 	status: MachineStatusEnum;
 	unitId: number;
+}
+
+export interface IAssetMetric {
+	lastUptimeAt: string;
+	totalCollectsUptime: number;
+	totalUptime: number;
 }
