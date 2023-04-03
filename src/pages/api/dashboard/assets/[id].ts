@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
 	request: NextApiRequest,
-	response: NextApiResponse<IResponse<IAsset | null>>
+	response: NextApiResponse<IResponse<IAsset[] | null>>
 ) {
 	const method = request.method;
 
