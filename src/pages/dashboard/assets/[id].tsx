@@ -4,13 +4,14 @@ import { VerticalDividerComponent } from '@/components/shared/vertical-divider';
 import { GetAssetsByIdService } from '@/services/assets/GetAssetsByIdService';
 import { IAsset } from '@/types/interfaces/asset.interface';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button, Col, Row } from 'antd';
+import { Button, Col, Divider, Row } from 'antd';
 import { GetServerSideProps } from 'next';
 import { Image } from 'antd';
 import { useRouter } from 'next/router';
 import nookies from 'nookies';
 import styles from './assets.module.scss';
 import { AssetMetricsComponent } from '@/components/asset-metrics';
+import { StatisticAssetComponent } from '@/components/statistic-asset';
 
 type AssetsProps = {
 	asset: IAsset | null;
@@ -121,6 +122,16 @@ export default function PageAssets({ asset, message, success }: AssetsProps) {
 							}
 							totalUptime={asset.metrics.totalUptime}
 						/>
+
+						<Divider />
+
+						<div className={styles['assets__graphics']}>
+							{success && asset && asset && (
+								<StatisticAssetComponent
+									healthHistory={asset.healthHistory}
+								/>
+							)}
+						</div>
 					</Col>
 				</Row>
 			)}

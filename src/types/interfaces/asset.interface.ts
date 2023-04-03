@@ -4,18 +4,11 @@ import { MachineStatusEnum } from '../enum/machine-status.enum';
 export interface IAsset {
 	assignedUserIds: number[];
 	companyId: number;
-	healthHistory: {
-		status: MachineStatusEnum;
-		timestamp: string;
-	}[];
+	healthHistory: IHealthHistory[];
 	healthscore: number;
 	id: number;
 	image: string;
-	metrics: {
-		lastUptimeAt: string;
-		totalCollectsUptime: number;
-		totalUptime: number;
-	};
+	metrics: IAssetMetric;
 	model: AssetModelEnum;
 	name: string;
 	sensors: string[];
@@ -32,4 +25,9 @@ export interface IAssetMetric {
 	lastUptimeAt: string;
 	totalCollectsUptime: number;
 	totalUptime: number;
+}
+
+export interface IHealthHistory {
+	status: MachineStatusEnum;
+	timestamp: string;
 }
