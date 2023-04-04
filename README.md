@@ -12,4 +12,8 @@
 
 -   Data for sign in was sent for the talent acquisition :)
 
+#### Sign in
+User: reviwer-tractian@challenge-front.com
+Password: TRac!an@&125Ed*s
+
 Open the project [in here](https://evp-tractian-three.vercel.app/)!
